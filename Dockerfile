@@ -16,8 +16,8 @@ COPY . .
 # Build the project if necessary (adjust command as needed)
 RUN npm run build || echo "No build script, skipping"
 
-# Expose port 3000 (adjust if your app listens on a different port)
-EXPOSE 3000
+# Expose port 80
+EXPOSE 80
 
 # Start the application (adjust start script if needed)
 CMD ["npm", "start"]
