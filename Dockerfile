@@ -13,11 +13,11 @@ RUN npm install
 # Copy the rest of the application files
 COPY . .
 
-# List files (debug)
+# List files in working directory for debug
 RUN ls -la
 
-# Set environment variable for Eleventy config
-ENV ELEVENTY_CONFIG=.eleventy.js
+# Verify .eleventy.js exists
+RUN test -f .eleventy.js
 
 # Build the project with explicit config
 RUN npx eleventy --config .eleventy.js
