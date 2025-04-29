@@ -19,5 +19,5 @@ RUN npm run build || echo "No build script, skipping"
 # Expose port 80
 EXPOSE 80
 
-# Start the application (adjust start script if needed)
-CMD ["npm", "start"]
+# Start the application with npm run serve
+CMD ["npm", "run", "serve"]
