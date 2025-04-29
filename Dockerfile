@@ -13,8 +13,14 @@ RUN npm install
 # Copy the rest of the application files
 COPY . .
 
-# Build the project
-RUN npm run build
+# List files (debug)
+RUN ls -la
+
+# Set environment variable for Eleventy config
+ENV ELEVENTY_CONFIG=.eleventy.js
+
+# Build the project with explicit config
+RUN npx eleventy --config .eleventy.js
 
 # Expose port 80
 EXPOSE 80
