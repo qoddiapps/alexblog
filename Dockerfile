@@ -7,14 +7,14 @@ WORKDIR /app
 # Copy package.json and package-lock.json
 COPY package*.json ./
 
-# Install dependencies
-RUN npm install
+# Install dependencies including dev dependencies
+RUN npm ci --production=false
 
 # Copy the rest of the application files
 COPY . .
 
-# Build the site with Eleventy
-RUN npx @11ty/eleventy
+# Build the site with Eleventy using npm script
+RUN npm run build
 
 # Install a simple static file server (serve)
 RUN npm install -g serve
